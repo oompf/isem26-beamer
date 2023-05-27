@@ -81,99 +81,116 @@
 \begin{frame}{Graph approximations}
     \begin{example}[Graph approximations]
         \begin{enumerate}
-            \item Unit interval
-            \begin{columns}[c]
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_0 \)
-                \end{figure}
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                        \filldraw [black] (0.5,0) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_1 \)
-                \end{figure}
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                        \filldraw [black] (0.5,0) circle (1pt);
-                        \filldraw [black] (0.25,0) circle (1pt);
-                        \filldraw [black] (0.75,0) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_2 \)
-                \end{figure}
-            \end{columns}
-            \item Sierpinksi gasket
-            \begin{columns}[c]
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                        \filldraw [black] (0.5,0.866) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_0 \)
-                \end{figure}
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
-                        \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                        \filldraw [black] (0.5,0.866) circle (1pt);
-                        \filldraw [black] (0.5,0) circle (1pt);
-                        \filldraw [black] (0.25,0.433) circle (1pt);
-                        \filldraw [black] (0.75,0.433) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_1 \)
-                \end{figure}
-                \column{0.33\textwidth}
-                \begin{figure}
-                    \begin{tikzpicture}[scale=2]
-                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
-                        \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
-                        \draw (0.5,0.433) -- (0.375,0.6495) -- (0.625,0.6495) -- (0.5,0.433);
-                        \draw (0.25,0) -- (0.125,0.2165) -- (0.375,0.2165) -- (0.25,0);
-                        \draw (0.75,0) -- (0.625,0.2165) -- (0.875,0.2165) -- (0.75,0);
-                        \filldraw [black] (0,0) circle (1pt);
-                        \filldraw [black] (1,0) circle (1pt);
-                        \filldraw [black] (0.5,0.866) circle (1pt);
-                        \filldraw [black] (0.5,0) circle (1pt);
-                        \filldraw [black] (0.25,0.433) circle (1pt);
-                        \filldraw [black] (0.75,0.433) circle (1pt);
-                        \filldraw [black] (0.25,0) circle (1pt);
-                        \filldraw [black] (0.75,0) circle (1pt);
-                        \filldraw [black] (0.125,0.2165) circle (1pt);
-                        \filldraw [black] (0.375,0.2165) circle (1pt);
-                        \filldraw [black] (0.625,0.2165) circle (1pt);
-                        \filldraw [black] (0.875,0.2165) circle (1pt);
-                        \filldraw [black] (0.5, 0.433) circle (1pt);
-                        \filldraw [black] (0.375,0.6495) circle (1pt);
-                        \filldraw [black] (0.625,0.6495) circle (1pt);
-                    \end{tikzpicture}\\
-                    \centering
-                    \(\Gamma_2 \)
-                \end{figure}
-            \end{columns}
-        \end{enumerate}
+            \item Unit interval:
+        \begin{columns}[c]
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_0 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_1 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0) circle (1pt);
+                    \filldraw [black] (0.75,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_2 \)
+            \end{figure}
+        \end{columns}
+        \item Sierpinksi gasket:
+        \begin{columns}[c]
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_0 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0.433) circle (1pt);
+                    \filldraw [black] (0.75,0.433) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_1 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                    \draw (0.5,0.433) -- (0.375,0.6495) -- (0.625,0.6495) -- (0.5,0.433);
+                    \draw (0.25,0) -- (0.125,0.2165) -- (0.375,0.2165) -- (0.25,0);
+                    \draw (0.75,0) -- (0.625,0.2165) -- (0.875,0.2165) -- (0.75,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0.433) circle (1pt);
+                    \filldraw [black] (0.75,0.433) circle (1pt);
+                    \filldraw [black] (0.25,0) circle (1pt);
+                    \filldraw [black] (0.75,0) circle (1pt);
+                    \filldraw [black] (0.125,0.2165) circle (1pt);
+                    \filldraw [black] (0.375,0.2165) circle (1pt);
+                    \filldraw [black] (0.625,0.2165) circle (1pt);
+                    \filldraw [black] (0.875,0.2165) circle (1pt);
+                    \filldraw [black] (0.5, 0.433) circle (1pt);
+                    \filldraw [red] (0.375,0.6495) circle (1pt);
+                    \filldraw [black] (0.625,0.6495) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_2 \)
+            \end{figure}
+        \end{columns}
+    \end{enumerate}
     \end{example}
+    The red vertex is in \(V_2 \) and is addressed via \(x = F_{(0, 1)}q_0 = F_{(0,0)}q_1 \).
+\end{frame}
+
+\begin{frame}{Self-similar measures}
+    \textbf{Want:} A measure \(\mu \) on \((K, \Sigma) \) which plays nicely with the self-similar structure of \(K \).
+
+    Therefore, let \(\Sigma \) be the \(\sigma \)-field generated by all the cells of \(K \), set
+    \[ \mu(F_\omega SG) := \left(\frac{1}{3} \right)^{|\omega |} \]
+    and extend it to \(\Sigma \) by Carathéodory.
+
+    In the case of the unit interval, it is easy to see that \( \mu(F_\omega I) := \left( \frac{1}{2} \right)^{|\omega |} \) extends to the Lebesgue measure.
+
+    \begin{definition}
+        We call the measure \(\mu \) \textit{self-similar} since
+        \[ \mu(A) = \sum_i \mu_i \mu(F_i^{-1} A) \text{ for all } A \in \Sigma \]
+        for some positive weights with \(\sum_i \mu_i = 1 \).
+    \end{definition}
 \end{frame}
