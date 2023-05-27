@@ -1,0 +1,62 @@
+\documentclass[notheorems]{beamer}
+
+% Packages, common definitons, etc.
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{amsthm}
+\setbeamertemplate{theorems}[numbered] % to number
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[definition]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\def\Satzrefname{Satz}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\newcommand{\N}{\mathbb{N}} % natural numbers
+\newcommand{\Z}{\mathbb{Z}} % integers
+\newcommand{\Q}{\mathbb{Q}} % rational numbers
+\newcommand{\K}{\mathbb{K}} % field
+\newcommand{\R}{\mathbb{R}} % reals
+\newcommand{\C}{\mathbb{C}} % complex numbers
+\newcommand{\1}{\mathds{1}} % indicator
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Zer}{\mathscr{Z}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\frakB}{\mathfrak{b}}
+\newcommand{\M}{\mathscr{M}}
+\newcommand{\Hol}{\mathcal{H}}
+
+
+% End of packages, common definitions, etc.
+
+\title{Energy Forms on Fractals}
+\subtitle{The Case of the Sierpinksi Gasket}
+\author{Youssef Hakiki \and Marcel Kleinfeller \and Paul Rahlf \and \\[3mm] {\small Supervisor: Uta Freiberg}}
+\institute{ISem26 - Project D}
+\date{\today}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\section{Graph approximations}
+\include{part1}
+\include{part2}
+\include{part3}
+\end{document}

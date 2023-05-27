@@ -1,0 +1,179 @@
+\begin{frame}{What is a fractal?}
+    You know it, when you see it!
+
+    \begin{columns}[c]
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[height=5em]{images/mandelbrot.pdf}
+            \caption{Mandelbrot set}
+        \end{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[height=5em]{images/sierpinksi.pdf}
+            \caption{Sierpinksi gasket}
+        \end{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[height=5em]{images/snowflake.pdf}
+            \caption{Koch snowflake}
+        \end{figure}
+    \end{columns}
+
+    Common features: 
+    \begin{itemize}
+        \item self-similarity
+        \item roughness
+        \item infinitely detailed
+        \item generate complex structure from very simple procedure (e.g. from iterated function systems)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Iterated function systems}
+    \begin{definition}
+        An \textit{iterated function system (IFS)} is a family \(F = \{ F_i: \R^d \to \R^d : 1 \leq i \leq N \ \} \) of contractions.
+    \end{definition}
+
+    \begin{theorem}[Hutchinson]
+        There is a unique non-empty, compact set \(K \subset \R^d \) so that
+        \[ K = F(K) := \bigcup_i F_i(K). \]
+    \end{theorem}
+
+    \begin{example}
+        a) \textbf{Sierpinksi gasket:} Choose \(V_0 := \{q_0, q_1, q_2 \} \) as the verticies of a proper triangle. Then the contractions
+        \[ F_i(x) := \frac{1}{2}(x - q_i) + q_i \]
+        characterize the Sierpinksi gasket \(SG \subset \R^2 \).
+    \end{example}
+\end{frame}
+
+\begin{frame}{Addressing points in IFS fractals}
+    \addtocounter{definition}{-1}
+    \begin{example}[Cont.]
+        b) \textbf{Unit interval\footnote{Not a fractal, but a self-similar and a good prototype.}:} Choose \(V_0 := \{q_0 = 0, q_1 = 1 \} \). Then
+        \[ F_i(x) := \frac{1}{2}(x - q_i) + q_i \]
+        gives us the unit interval \(I \subset \R \).
+    \end{example}
+
+    Iteratively, define \(V_m := \bigcup_i F_i(V_{m-1}) \) and note that one can write
+    \[ V_m = \bigcup_{| \omega | = m} F_\omega(V_0), \quad \text{where } F_\omega := F_{\omega_1} \circ \cdots \circ F_{\omega_m} \]
+    and \(\omega \in \{1, \dots, N \}^m \) is a \textit{word} of length \(| \omega | = m \).
+
+    So, every point \(x \in V_* := \bigcup_{m \geq 0} V_m \) can be written as \(x = F_\omega q_i \).  Every \(x \in V_m \setminus V_0 \) has exactly two addresses since \(F_0 q_1 = F_1 q_0 \), \(F_1 q_2 = F_2 q_1 \) and \(F_2 q_0 = F_0 q_2 \).
+    Finally: Convince yourself, that \(K = \overline{V_*} \).
+\end{frame}
+
+\begin{frame}{Finite ramification and graph approximations}
+    \begin{definition}
+        \begin{enumerate}
+            \item If \(\omega \) is a word of with length \(| \omega | = m \), we call \(F_\omega (K) \) a \textit{cell} of level \(m \).
+            \item If two distinct cells of level \(m \) intersect in at most finitely many points, we say that \(K \) is \textit{finitely ramified}.
+        \end{enumerate}
+    \end{definition}
+
+    In the case of \(K \in \{I, SG \} \), two distinct \(m \) level cells intersect in at most one point and the set of those \textit{junction points} is \(V_m \setminus V_0 \). We can thus define a relation on the set \(V_m \) through
+    \[ x \sim_m y :\Leftrightarrow \text{there is a } \omega \text{ of length } | \omega | = m \text{ so that } x, y \in F_\omega K. \]
+
+    Now, we can consider graphs \(\Gamma_m := (V_m, \sim_m) \).
+\end{frame}
+
+\begin{frame}{Graph approximations}
+    \begin{example}[Graph approximations]
+        \begin{enumerate}
+            \item Unit interval
+            \begin{columns}[c]
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_0 \)
+                \end{figure}
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                        \filldraw [black] (0.5,0) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_1 \)
+                \end{figure}
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                        \filldraw [black] (0.5,0) circle (1pt);
+                        \filldraw [black] (0.25,0) circle (1pt);
+                        \filldraw [black] (0.75,0) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_2 \)
+                \end{figure}
+            \end{columns}
+            \item Sierpinksi gasket
+            \begin{columns}[c]
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                        \filldraw [black] (0.5,0.866) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_0 \)
+                \end{figure}
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                        \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                        \filldraw [black] (0.5,0.866) circle (1pt);
+                        \filldraw [black] (0.5,0) circle (1pt);
+                        \filldraw [black] (0.25,0.433) circle (1pt);
+                        \filldraw [black] (0.75,0.433) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_1 \)
+                \end{figure}
+                \column{0.33\textwidth}
+                \begin{figure}
+                    \begin{tikzpicture}[scale=2]
+                        \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                        \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                        \draw (0.5,0.433) -- (0.375,0.6495) -- (0.625,0.6495) -- (0.5,0.433);
+                        \draw (0.25,0) -- (0.125,0.2165) -- (0.375,0.2165) -- (0.25,0);
+                        \draw (0.75,0) -- (0.625,0.2165) -- (0.875,0.2165) -- (0.75,0);
+                        \filldraw [black] (0,0) circle (1pt);
+                        \filldraw [black] (1,0) circle (1pt);
+                        \filldraw [black] (0.5,0.866) circle (1pt);
+                        \filldraw [black] (0.5,0) circle (1pt);
+                        \filldraw [black] (0.25,0.433) circle (1pt);
+                        \filldraw [black] (0.75,0.433) circle (1pt);
+                        \filldraw [black] (0.25,0) circle (1pt);
+                        \filldraw [black] (0.75,0) circle (1pt);
+                        \filldraw [black] (0.125,0.2165) circle (1pt);
+                        \filldraw [black] (0.375,0.2165) circle (1pt);
+                        \filldraw [black] (0.625,0.2165) circle (1pt);
+                        \filldraw [black] (0.875,0.2165) circle (1pt);
+                        \filldraw [black] (0.5, 0.433) circle (1pt);
+                        \filldraw [black] (0.375,0.6495) circle (1pt);
+                        \filldraw [black] (0.625,0.6495) circle (1pt);
+                    \end{tikzpicture}\\
+                    \centering
+                    \(\Gamma_2 \)
+                \end{figure}
+            \end{columns}
+        \end{enumerate}
+    \end{example}
+\end{frame}
