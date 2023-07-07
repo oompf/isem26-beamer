@@ -1,12 +1,11 @@
-# PDE II Lecture Notes
+# ISem26 – Slides of Project D
 
-[![Build LaTeX document](https://github.com/oompf/pde2-lecture-notes/actions/workflows/compile-and-release.yml/badge.svg)](https://github.com/oompf/pde2-lecture-notes/actions/workflows/compile-and-release.yml)
+[![Build LaTeX document](https://github.com/oompf/isem26-beamer/actions/workflows/compile-and-release.yml/badge.svg)](https://github.com/oompf/isem26-beamer/actions/workflows/compile-and-release.yml)
 
 
+## Latest version
 
-## Latest Lecture Notes
-
-The latest lecture notes can be found [here](https://github.com/oompf/isem26-beamer/releases/latest/download/slides.pdf).
+The latest version of the beamer slides can be found [here](https://github.com/oompf/isem26-beamer/releases/latest/download/slides.pdf).
 
 ## Contributing
 
