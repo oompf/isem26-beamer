@@ -1,6 +1,6 @@
 # ISem26 – Slides of Project D
 
-[![Build LaTeX document](https://github.com/oompf/isem26-beamer/actions/workflows/compile-and-release.yml/badge.svg)](https://github.com/oompf/isem26-beamer/actions/workflows/compile-and-release.yml)
+[![Build LaTeX document](https://github.com/oompf/isem26-beamer/actions/workflows/commit-and-release.yml/badge.svg)](https://github.com/oompf/isem26-beamer/actions/workflows/commit-and-release.yml)
 
 
 ## Latest version
