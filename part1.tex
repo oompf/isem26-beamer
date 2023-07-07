@@ -155,8 +155,11 @@
                     \draw (0.25,0) -- (0.125,0.2165) -- (0.375,0.2165) -- (0.25,0);
                     \draw (0.75,0) -- (0.625,0.2165) -- (0.875,0.2165) -- (0.75,0);
                     \filldraw [black] (0,0) circle (1pt);
+                    \node[yshift=-2mm, xshift=-2mm] at (0,0) {\(q_1\)};
                     \filldraw [black] (1,0) circle (1pt);
+                    \node[yshift=-2mm, xshift=2mm] at (1,0) {\(q_2\)};
                     \filldraw [black] (0.5,0.866) circle (1pt);
+                    \node[yshift=3mm, xshift=0mm] at (0.5,0.866) {\(q_0\)};
                     \filldraw [black] (0.5,0) circle (1pt);
                     \filldraw [black] (0.25,0.433) circle (1pt);
                     \filldraw [black] (0.75,0.433) circle (1pt);
@@ -193,4 +196,49 @@
         \[ \mu(A) = \sum_i \mu_i \mu(F_i^{-1} A) \text{ for all } A \in \Sigma \]
         for some positive weights with \(\sum_i \mu_i = 1 \).
     \end{definition}
+\end{frame}
+
+\begin{frame}{Integration}
+    We have canoncial measures on \(K \in \{I, SG \} \), so we can integrate measurable functions \(f: (K, \Sigma) \to (\R, \mathcal{B}) \).
+    \begin{lemma}
+        For \(f: K \to \R \) continuous, we obtain the usual Riemann integral via
+        \[ \int_K f d\mu := \lim_{m \to \infty} \sum_{|\omega | = m} f(x_\omega) \mu(F_\omega K) \]
+        for some \(x_\omega \in F_\omega K \).
+
+        This can\footnote{for measure with standard weights} also be written with a measure \(\nu_m: V_m \to \R_+ \) as
+        \begin{align*}
+            \int_K f d\mu &= \lim_{m \to \infty} \frac{1}{3} \sum_{i=0}^2 \sum_{| \omega | = m} f(F_\omega q_i) \mu(F_\omega K)
+            = \lim_{m\to \infty} \int_{V_m} f(x) d\nu_m(x) \\
+            &\overset{\text{SG}}= 3^{-m} \left(\frac{2}{3} \sum_{x\in V_m \setminus V_0} f(x) + \frac{1}{3} \sum_{x \in V_0} f(x) \right).
+        \end{align*}
+    \end{lemma}
+\end{frame}
+
+\begin{frame}{Dirichlet principle}
+    \textbf{Motivation:} The Dirichlet principle states: Solving the Poisson equation
+    \[ \begin{cases}
+            -\Delta u = f &\text{in } U,\\
+            u = g &\text{on } \partial U
+        \end{cases} \]
+    is equivalent to minimization of the energy functional
+    \[ E[v] = \textcolor{red}{\frac{1}{2} \int_U \| \nabla v(x) \|^2 dx} - \int_U f(x)v(x) dx \]
+    on a suitable function space.
+
+    \textbf{Aim:} Define something like the \textcolor{red}{red} energy via graph approximations for (continuous / measurable) functions \(f: K \to \R \).
+
+    Use the unit interval \(I = [0, 1] \) as our model case.
+\end{frame}
+
+\begin{frame}{Graph energies for unit interval}
+    \textbf{Note that:}
+    \begin{align*}
+        \int_U \| u'(x) \|^2 dx &\overset{\text{MVT}}= \lim_{m \to \infty} \sum_{k=1}^{2^m} 2^{-m} \left( \frac{u(k2^{-m}) - u((k-1)2^{-m})}{2^{-m}} \right)^2 \\
+        &= \lim_{m \to \infty} 2^m \sum_{x \sim_m y} [ u(x) - u(y) ]^2 \\
+        &=: \lim_{m \to \infty} r^{-m} E_m(u) =: \lim_{m\to\infty} \mathcal{E}_m (u)
+    \end{align*}
+
+    \textbf{Alternative way:} One can show via harmonic extensions that
+    \[ E_{m+1}(u) \geq E_{m+1}(\tilde{u}) = r \cdot E_m(u) \]
+    and thus
+    \[ \mathcal{E}_{m+1}(u) = r^{-(m+1)} E_{m+1}(u) \geq r^{-m} E_m(u) = \mathcal{E}_m(u) \]
 \end{frame}
