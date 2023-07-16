@@ -65,6 +65,110 @@
     Finally: Convince yourself, that \(K = \overline{V_*} \).
 \end{frame}
 
+\begin{frame}{Graph approximations}
+    \begin{example}[Graph approximations]
+        \begin{enumerate}
+            \item Unit interval:
+        \begin{columns}[c]
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_0 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_1 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0) circle (1pt);
+                    \filldraw [black] (0.75,0) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_2 \)
+            \end{figure}
+        \end{columns}
+        \item Sierpinksi gasket:
+        \begin{columns}[c]
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_0 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \filldraw [black] (1,0) circle (1pt);
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0.433) circle (1pt);
+                    \filldraw [black] (0.75,0.433) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_1 \)
+            \end{figure}
+            \column{0.33\textwidth}
+            \begin{figure}
+                \begin{tikzpicture}[scale=2]
+                    \draw (0,0) -- (1,0) -- (0.5,0.866) -- (0,0);
+                    \draw (0.5,0) -- (0.25,0.433) -- (0.75,0.433) -- (0.5,0);
+                    \draw (0.5,0.433) -- (0.375,0.6495) -- (0.625,0.6495) -- (0.5,0.433);
+                    \draw (0.25,0) -- (0.125,0.2165) -- (0.375,0.2165) -- (0.25,0);
+                    \draw (0.75,0) -- (0.625,0.2165) -- (0.875,0.2165) -- (0.75,0);
+                    \filldraw [black] (0,0) circle (1pt);
+                    \node[yshift=-2mm, xshift=-2mm] at (0,0) {\(q_1\)};
+                    \filldraw [black] (1,0) circle (1pt);
+                    \node[yshift=-2mm, xshift=2mm] at (1,0) {\(q_2\)};
+                    \filldraw [black] (0.5,0.866) circle (1pt);
+                    \node[yshift=3mm, xshift=0mm] at (0.5,0.866) {\(q_0\)};
+                    \filldraw [black] (0.5,0) circle (1pt);
+                    \filldraw [black] (0.25,0.433) circle (1pt);
+                    \filldraw [black] (0.75,0.433) circle (1pt);
+                    \filldraw [black] (0.25,0) circle (1pt);
+                    \filldraw [black] (0.75,0) circle (1pt);
+                    \filldraw [black] (0.125,0.2165) circle (1pt);
+                    \filldraw [black] (0.375,0.2165) circle (1pt);
+                    \filldraw [black] (0.625,0.2165) circle (1pt);
+                    \filldraw [black] (0.875,0.2165) circle (1pt);
+                    \filldraw [black] (0.5, 0.433) circle (1pt);
+                    \filldraw [red] (0.375,0.6495) circle (1pt);
+                    \filldraw [black] (0.625,0.6495) circle (1pt);
+                \end{tikzpicture}\\
+                \centering
+                \(\Gamma_2 \)
+            \end{figure}
+        \end{columns}
+    \end{enumerate}
+    \end{example}
+    The red vertex is in \(V_2 \setminus V_1 \) and is addressed via \(x = F_{(0, 1)}q_0 = F_{(0,0)}q_1 \).
+\end{frame}
+
 \begin{frame}{Finite ramification and graph approximations}
     \begin{definition}
         \begin{enumerate}
@@ -171,8 +275,9 @@
                     \filldraw [black] (0.625,0.2165) circle (1pt);
                     \filldraw [black] (0.875,0.2165) circle (1pt);
                     \filldraw [black] (0.5, 0.433) circle (1pt);
-                    \filldraw [red] (0.375,0.6495) circle (1pt);
+                    \filldraw [black] (0.375,0.6495) circle (1pt);
                     \filldraw [black] (0.625,0.6495) circle (1pt);
+                    \filldraw[draw=red, fill=red] (0.5, 0.433) -- (0.375, 0.6495) -- (0.25, 0.433) -- (0.5, 0.433) -- cycle;
                 \end{tikzpicture}\\
                 \centering
                 \(\Gamma_2 \)
@@ -180,7 +285,7 @@
         \end{columns}
     \end{enumerate}
     \end{example}
-    The red vertex is in \(V_2 \setminus V_1 \) and is addressed via \(x = F_{(0, 1)}q_0 = F_{(0,0)}q_1 \).
+    The red area is a level 2 cell and is given by \(F_{(0,1)}K = F_0 F_1 K\).
 \end{frame}
 
 \begin{frame}{Self-similar measures}
