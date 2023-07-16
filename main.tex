@@ -1,10 +1,14 @@
 \documentclass[notheorems]{beamer}
 
-% Packages, common definitons, etc.
-\usepackage[english]{babel}
+% Packages, common definitions, etc.
+\usepackage{csquotes}
 \usepackage{graphicx}
-\usepackage{tikz}
 \usepackage{xcolor}
+\usepackage{comment}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{positioning} % Relative positioning
 
 \usepackage{amsthm}
 \setbeamertemplate{theorems}[numbered] % to number
@@ -16,7 +20,6 @@
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{lemma}[definition]{Lemma}
 \newtheorem{corollary}[definition]{Corollary}
-\def\Satzrefname{Satz}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
@@ -39,14 +42,17 @@
 \newcommand{\M}{\mathscr{M}}
 \newcommand{\Hol}{\mathcal{H}}
 
-
-% End of packages, common definitions, etc.
+% Added by Paul
+\newcommand{\dwt}{$\Delta$-Y-Transform} % Delta-Wye-Transform
+\newcommand{\abs}[1]{\left\vert #1 \right\vert} % Absolute value
+\newcommand{\dom}[1]{\mathrm{dom}\left( #1 \right)} % Domain
+\newcommand{\E}{\mathcal{E}} % Energy
 
 \title{Energy Forms on Fractals}
 \subtitle{The Case of the Sierpinksi Gasket}
 
 \author % (optional, for multiple authors)
-{Youseff Hakiki\inst{1} \and Marcel Kleinfeller\inst{2} \and Paul Rahlf\inst{3} \and \\[3mm] {\small Supervisor: Uta Freiberg\inst{4}}}
+{Youssef Hakiki\inst{1} \and Marcel Kleinfeller\inst{2} \and Paul Rahlf\inst{3} \and \\[3mm] {\small Supervisor: Uta Freiberg\inst{4}}}
 
 \institute[VFU] % (optional)
 {
