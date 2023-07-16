@@ -61,7 +61,7 @@
     \[ V_m = \bigcup_{| \omega | = m} F_\omega(V_0), \quad \text{where } F_\omega := F_{\omega_1} \circ \cdots \circ F_{\omega_m} \]
     and \(\omega \in \{1, \dots, N \}^m \) is a \textit{word} of length \(| \omega | = m \).
 
-    So, every point \(x \in V_* := \bigcup_{m \geq 0} V_m \) can be written as \(x = F_\omega q_i \).  Every \(x \in V_m \setminus V_0 \) has exactly two addresses since \(F_0 q_1 = F_1 q_0 \), \(F_1 q_2 = F_2 q_1 \) and \(F_2 q_0 = F_0 q_2 \).
+    So, \(V_m \subset V_{m+1} \) and every point \(x \in V_* := \bigcup_{m \geq 0} V_m \) can be written as \(x = F_\omega q_i \).  Every \(x \in V_m \setminus V_0 \) has exactly two addresses since \(F_0 q_1 = F_1 q_0 \), \(F_1 q_2 = F_2 q_1 \) and \(F_2 q_0 = F_0 q_2 \).
     Finally: Convince yourself, that \(K = \overline{V_*} \).
 \end{frame}
 
@@ -180,7 +180,7 @@
         \end{columns}
     \end{enumerate}
     \end{example}
-    The red vertex is in \(V_2 \) and is addressed via \(x = F_{(0, 1)}q_0 = F_{(0,0)}q_1 \).
+    The red vertex is in \(V_2 \setminus V_1 \) and is addressed via \(x = F_{(0, 1)}q_0 = F_{(0,0)}q_1 \).
 \end{frame}
 
 \begin{frame}{Self-similar measures}
@@ -232,14 +232,37 @@
 
 \begin{frame}{Graph energies for unit interval}
     \textbf{Note that:}
-    \begin{align*}
-        \int_U \| u'(x) \|^2 dx &\overset{\text{MVT}}= \lim_{m \to \infty} \sum_{k=1}^{2^m} 2^{-m} \left( \frac{u(k2^{-m}) - u((k-1)2^{-m})}{2^{-m}} \right)^2 \\
-        &= \lim_{m \to \infty} 2^m \sum_{x \sim_m y} [ u(x) - u(y) ]^2 \\
-        &=: \lim_{m \to \infty} r^{-m} E_m(u) =: \lim_{m\to\infty} \mathcal{E}_m (u)
-    \end{align*}
+    \begin{tiny}
+        \begin{align*}
+            \int_U \| u'(x) \|^2 dx &= \lim_{m\to\infty} \sum_{k=1}^{2^m} 2^{-m} u'(\textcolor{blue}{x_k})
+            \overset{\text{MVT}}= \lim_{m \to \infty} \sum_{k=1}^{2^m} 2^{-m} \left( \frac{u(k2^{-m}) - u((k-1)2^{-m})}{2^{-m}} \right)^2 \\
+            &= \lim_{m \to \infty} 2^m \textcolor{purple}{\sum_{x \sim_m y} [ u(x) - u(y) ]^2}
+            =: \lim_{m \to \infty} r^{-m} \textcolor{purple}{E_m(u)} =: \lim_{m\to\infty} \mathcal{E}_m (u)
+        \end{align*}
+    \end{tiny}
+    with appropriate choices of \(\textcolor{blue}{x_k} \in ((k-1)2^{-m}, k2^m) \).
 
-    \textbf{Alternative way:} One can show via harmonic extensions that
+    \textbf{Alternative approach:} One can show via harmonic extensions that
     \[ E_{m+1}(u) \geq E_{m+1}(\tilde{u}) = r \cdot E_m(u) \]
     and thus
     \[ \mathcal{E}_{m+1}(u) = r^{-(m+1)} E_{m+1}(u) \geq r^{-m} E_m(u) = \mathcal{E}_m(u) \]
+    allows definition of
+    \[ \mathop{Energy}(u) = \lim_{m\to \infty} \mathcal{E}_m(u). \]
+\end{frame}
+
+\begin{frame}{Harmonic extension approach to graph energies}
+    For \(u: \R \to \R \), we define the \(m\)-th (graph) energies
+    \[ E_m(u) := \sum_{x \sim_m y} \left( u(x) - u(y) \right)^2. \]
+
+    \textbf{Question:} What is the\footnote{not unique, but there is a canonical one} harmonic extension of \(u \) from \(\Gamma_m \) to \(\Gamma_{m+1} \)?
+    I.e. find \(\tilde{u} \) with \(\tilde{u}(x) = u(x) \) for \(x \in V_m \) and \(\tilde{u} \) is a minimizer of \(E_{m+1} \).
+
+    \textbf{Now:}
+    \begin{tiny}
+        \begin{align*}
+            E_{m+1}(\tilde{u}) &= \sum_{k=1}^{2^{m+1}} [\tilde{u}(k2^{-(m+1)}) - \tilde{u}((k-1)2^{-(m+1)})]^2 \\
+            &= \sum_{k=1}^{2^m} [\tilde{u}(k2^{-m}) - \tilde{u}((k-1/2)2^{-m})]^2 + [\tilde{u}((k-1/2)2^{-m}) - \tilde{u}((k-1)2^{-m})]^2
+        \end{align*}
+    \end{tiny}
+    Optimization yields \(\tilde{u}((k-1/2)2^{-m}) = \frac{u(k2^{-m}) + u((k-1)2^{-m})}{2} \) and \(E_{m+1}(\tilde{u}) = 2\cdot E_m(u) \). Thus, \(r = 2 \).
 \end{frame}
