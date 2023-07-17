@@ -78,23 +78,23 @@ is to be minimized.
 \begin{align}\label{1st harm extension}
     %\begin{aligned}
     \left\{ \begin{array}{rcl}
-        u(F_0q_1)=u(F_1q_0)=x:=& {\color{red} \frac{1}{5}}.a+{\color{blue} \frac{2}{5}}.b+{\color{blue} \frac{2}{5}}.c \\
+        u(F_0q_1)=u(F_1q_0)=x:=& {\color{red} \frac{1}{5}}a+{\color{blue} \frac{2}{5}}b+{\color{blue} \frac{2}{5}}c \\
         \\
-        u(F_0q_2)=u(F_2q_0)=y:=& {\color{blue} \frac{2}{5}}.a+{\color{red} \frac{1}{5}}.b+{\color{blue} \frac{2}{5}}.c \\
+        u(F_0q_2)=u(F_2q_0)=y:=& {\color{blue} \frac{2}{5}}a+{\color{red} \frac{1}{5}}b+{\color{blue} \frac{2}{5}}c \\
         \\
-        u(F_1q_2)=u(F_2q_1)=z:=& {\color{blue} \frac{2}{5}}.a+{\color{blue} \frac{2}{5}}.b+{\color{red} \frac{1}{5}}.c \\
+        u(F_1q_2)=u(F_2q_1)=z:=& {\color{blue} \frac{2}{5}}a+{\color{blue} \frac{2}{5}}b+{\color{red} \frac{1}{5}}c \\
     \end{array}\right.
     %\end{aligned}
 \end{align}
 
-\item In the particular \textbf{symetric} case, i.e. when $a=1$ and $b=c=0$, we obtain $x=1/5$ and $y=z=2/5$. 
+\item In the particular \textbf{symmetric} case, i.e. when $a=1$ and $b=c=0$, we obtain $x=1/5$ and $y=z=2/5$. 
 \end{itemize}
 \end{frame}
 \begin{frame}
 \begin{itemize}
     \item Using \eqref{1st harm extension}, we can show easily that 
     \begin{align}
-        E_1(\tilde{u})=r.E_0(u),
+        E_1(\tilde{u})=rE_0(u),
     \end{align}
     where $r=3/5$, so the \textbf{renormalized energy} is given by:
     $$
@@ -105,7 +105,7 @@ is to be minimized.
 \item The same idea could be done, for $u:V_m\rightarrow \mathbb{R}$ given, to obtain the \textbf{harmonic extension} form $V_m$ to $V_{m+1}$ such that:
 \begin{align}
     \left\{ \begin{array}{cc}
-        &E_{m+1}(\tilde{u})=r.E_{m}(u)   \\
+        &E_{m+1}(\tilde{u})=rE_{m}(u)   \\
         &\mathcal{E}_{m+1}(\tilde{u})=r^{-1}E_{m}(u) 
     \end{array}\right.
 \end{align}
@@ -154,7 +154,7 @@ $$
 
 \item Moreover 
 \begin{align}\label{when energy vanish}
-\mathcal{E}(u)=0 \quad \Leftrightarrow \quad u=cts, 
+\mathcal{E}(u)=0 \quad \Leftrightarrow \quad u=const, 
 \end{align}
 and 
 \begin{align}\label{dom energy}
@@ -175,7 +175,7 @@ and
 \lvert u(x)-u(y)\rvert  \leq \frac{r^{m/2}}{1-r^{1/2}}\, \mathcal{E}^{1/2}(u).
 \end{align}
 
-\item When $K=I$ is the \textbf{interval}, \eqref{mod-cont} ensures that $u$ is $1/2$-Hölder continuous. Precisely; since $r=1/2$, if $x,y$ are suc that $|x-y|\leq 1/2^{m}$ then $x$ and $y$ belongs to the same or adjacent $m$-cell. Hence \eqref{mod-cont} ensures that
+\item When $K=I$ is the \textbf{interval}, \eqref{mod-cont} ensures that $u$ is $1/2$-Hölder continuous. Precisely; since $r=1/2$, if $x,y$ are such that $|x-y|\leq 1/2^{m}$ then $x$ and $y$ belongs to the same or adjacent $m$-cell. Hence \eqref{mod-cont} ensures that
 \begin{equation}
     |u(x)-u(y)|\leq M |x-y|^{1/2}.
 \end{equation}
@@ -209,23 +209,22 @@ R(x,y)\thicksim \lVert x-y \rVert^{\beta} \quad \text{ for } \quad \beta=\log \f
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Hilbert space property/Self-Similarity of the energy}
+\begin{frame}{Hilbert space property}
 \begin{theorem}
     $dom(\mathcal{E})/constants$ forms a Hilbert space with the inner product given by 
     \begin{equation}\label{inner prod}
         (u,v)_{\mathcal{E}}:=\mathcal{E}(u,v):=\lim_{m\rightarrow \infty}\mathcal{E}_m(u,v) \quad \text{ for all } u,v \in \operatorname{dom}(\mathcal{E})
     \end{equation}
 \end{theorem}
-The next result expresses the self-similarity of the energy.
+\end{frame}
+
+\begin{frame}{Self-Similarity of the energy}
 \begin{theorem}
 If $u \in \operatorname{dom}(\mathcal{E})$ then $u \circ F_i \in \operatorname{dom}(\mathcal{E})$ for all $i$, and
 \begin{align}\label{self-sim energy}
     \mathcal{E}(u)=\sum_i r^{-1} \mathcal{E}\left(u \circ F_i\right)
 \end{align}
 \end{theorem}
-\end{frame}
-
-\begin{frame}
 This self-similarity of the energy follows from the following fact
 $$
 \mathcal{E}_{m+1}(u)=\sum_{i=0}^{2} r^{-1} \mathcal{E}_m\left(u \circ F_i\right).
@@ -239,6 +238,7 @@ and replacing $r^{-1}$ by $r^{-|\omega|}$, we obtain
     \mathcal{E}(u)=\sum_{\omega\in \mathcal{P}} r^{-|\omega|} \mathcal{E}\left(u \circ F_{\omega}\right).
 \end{align}
 \end{frame}
+\begin{comment}
 \begin{frame}{Self-Similar measure}
 \begin{itemize}
     \item The previous self-similarity equation suggest the existence of a measure $\nu_u$ defined through energies. More precisely, we have
@@ -255,6 +255,8 @@ and replacing $r^{-1}$ by $r^{-|\omega|}$, we obtain
     $$
 \end{itemize}
 \end{frame}
+
+\end{comment}
 \begin{frame}{Markov property/Compatibility with normal contraction}
     \begin{itemize}
     \item The {Markov property/Compatibility with normal contraction} holds for all $u\in \operatorname{dom}(\mathcal{E})$, i.e.

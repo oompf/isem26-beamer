@@ -7,11 +7,11 @@
 \begin{frame}{Electric Network Interpretation}
     % \textbf{Terminology:}
     \begin{description}
-        \item[Network] Nodes (Vertices) $V$ and conductors (edges) with conductance (edge weight) $C$
-        \item[Resistance]  Reciprocal $R= 1/C$ of conductance
-        \item[Energy] Voltage $u:V \to \R$ applied to nodes results in electric energy
+        \item[Network] Nodes (vertices) $V$ and conductors (edges) with conductance (edge weight) $C$
+        \item[Resistance]  Reciprocal of conductance $R= 1/C$
+        \item[Energy] Voltage applied to nodes results in electric energy
         \begin{align*}
-            E(u) &= \sum_{x\sim y} c_{xy} \abs{u(x) - u(y)}^{2}
+            E(u) &= \sum_{x\sim y} C_{xy} \abs{u(x) - u(y)}^{2} && (u:V \to \R)
         \end{align*}
         \item[Restriction] Only apply voltage to \emph{some} nodes $V^{\prime}$ and let others settle into value \note{According to laws of physics the function $u$ will minimize Energy}
     \end{description}
@@ -50,7 +50,7 @@
 \end{frame}
 
 \begin{frame}{\dwt}
-    \textit{Claim.} Resistance equivalent networks:
+    \textbf{Claim.} Resistance equivalent networks:
 
     \begin{columns}[c]            % Cols are center vertically aligned
         \begin{column}{.45\textwidth}
@@ -83,7 +83,7 @@
     \end{columns}
     \bigskip
 
-    \textit{Proof.} Combine rules for resistors in series and in parallel:
+    \textbf{Proof.} Combine rules for resistors in series and in parallel:
     \begin{columns}[t]
         \begin{column}{.4\textwidth}
             Left:
@@ -285,30 +285,33 @@
     Given a nework, we define the effective resistance between any two points as the resistance between them when restricting to these two points:
     
     \begin{definition}[Effective Resistance]
-    % TODO: Add description
     Let $x,y \in V$.
         \begin{align*}
             R(x,y)^{-1} := \min \left\{ \E(u) \,\middle\vert\, u(x)=0 \text{ and } u(y)=1 \right\} 
         \end{align*}
     \end{definition}
+    \bigskip
 
-    \textit{Claim.} Equivalent: Minimum value for $R$ such that
+    \textbf{Claim.} Equivalent: Minimum value for $R$ such that
     \begin{align*}
         \abs{u(x) - u(y)}^{2} &\leq R\, \E(u) && \text{for all } u \in \dom{\E}.
     \end{align*}
-    \textit{Proof.} Let $u\in \dom{\E}$ such that $u(x)=0$ and $u(y)=1$ and $u$ minimizes $\E(u)$. Then
+    \bigskip
+    \newpage
+    
+    \textbf{Proof.} Let $u\in \dom{\E}$ such that $u(x)=0$ and $u(y)=1$ and $u$ minimizes $\E(u)$. Thus
     \begin{align*}
         1 = \abs{u(x) - u(y)}^{2} \leq R\, \E(u) = \frac{R}{R(x,y)}
     \end{align*}
     yields $R(x,y) \leq R$.
 
-    For arbitrary $u \in \dom{\E}$ denote $v := \frac{u - u(x)}{u(y)-u(x)}$.
+    For arbitrary $u \in \dom{\E}$ with $u(x) \neq u(y)$ denote $v := \frac{u - u(x)}{u(y)-u(x)}$.
     \note{If u such that u(x) \neq u(y) does not exist the claim is trivial.}
-    Then
+    Then $v(x)=0$ and $v(y)=1$ and
     \begin{align*}
         R(x,y)^{-1} \leq \E(v) = \frac{\E(u)}{\abs{u(x)-u(y)}^{2}}
     \end{align*}
-    yields $\abs{u(x)-u(y)}^{2} \leq R(x,y)\,\E(u)$.
+    yields $\abs{u(x)-u(y)}^{2} \leq R(x,y)\,\E(u)$ and therefore $R \leq R(x,y)$.
 \end{frame}
 
 \begin{frame}{Effective Resistance on Unit Interval}
@@ -342,19 +345,19 @@
 
 \begin{frame}{Effective Resistance is Metric}
     \begin{theorem}[Tower Property]
-        Suppose $V^{\prime\prime} \subsetneq V^{\prime} \subseteq V$. Given a network on $V$, the restriction to $V^{\prime\prime}$ is equal to the restriction $V^{\prime\prime}$ of the restrction to $V^{\prime}$.
+        Suppose $V^{\prime\prime} \subseteq V^{\prime} \subseteq V$. Given a network on $V$, the restriction to $V^{\prime\prime}$ is equal to the restriction $V^{\prime\prime}$ of the restrction to $V^{\prime}$.
     \end{theorem}
     \bigskip
     
-    \textit{Claim.} Effective resistance fullfills triangle inequality.
+    \textbf{Claim.} Effective resistance fullfills triangle inequality.
     \bigskip
 
-    \textit{Proof.} Only need to consider $\Delta$-shaped networks. Combine rules for resistors in series and in parallel:
+    \textbf{Proof.} Only need to consider $\Delta$-shaped networks. Combine rules for resistors in series and in parallel:
 
     \begin{columns}[c]
         \begin{column}{.7\textwidth}
             \begin{align*}
-                R(x,y) &= \frac{1}{\frac{1}{R_{xy}} + \frac{1}{R_{yz + R_{zx}}}}
+                R(x,y) &= \frac{1}{\frac{1}{R_{xy}} + \frac{1}{R_{yz} + R_{zx}}}
                 = \frac{R_{xy}\,(R_{yz} + R_{zx})}{R_{xy} + R_{yz} + R_{zx}}
             \end{align*}
         \end{column}
@@ -377,21 +380,20 @@
     Short computation shows
     \begin{align*}
         R(x,y) + R(y,z) = R(z,x) + \frac{2\, R_{xy}\, R_{yz}}{R_{xy} + R_{yz} + R_{zx}} \geq R(z,x).
-    \end{align*}
-    
+    \end{align*}   
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Effective Resistance on SG}
     \note{Computing effective resistance is complicated. We can give estimates.}
 
-    \textbf{Aim:} Estimates for $R$.
+    %\textbf{Aim:} Estimates for $R$.
 
     \begin{itemize}
         \item Consider neighboring vertices $x,y \in V_{m}$.
 
         \item Chose $u=\psi^{m}_{y}$ as piecewise harmonic spline, i.e. $\psi^{m}_{y}(z) = \delta_{yz}$ for all $z\in V_{m}$. Then
         \begin{align*}
-            \E(u) = \E_{m}(u) = r^{-m}\, E_{m}(u) = r^{-m}\, \sum_{x\sim y} \abs{u(x) - u(y)}^{2} \leq 4\,r^{-m}.
+            \E(u) = \E_{m}(u) = r^{-m}\, E_{m}(u) = r^{-m}\, \sum_{x\sim_m y} \abs{u(x) - u(y)}^{2} \leq 4\,r^{-m}.
         \end{align*}
         \note{Node $y$ has at most 4 neighbors.}
         Hence $R(x,y)^{-1} \leq \E(u) \leq 4\,r^{-m}$.
@@ -446,7 +448,7 @@
         \begin{align*}
             R(x,y) &\sim \abs{x-y}^{\beta} && \text{with } \beta < 1.
         \end{align*}
-        \item Effective resistance is topologically equivalent but not same as Euclidean metric.
+        \item Effective resistance and Euclidian metric are topologically equivalent but they are not equivalent metrics.
         \note{Since $\beta < 1$ (small) distances in resistance metric are much larger than in Euclidean metric.}
     \end{itemize}
 \end{frame}
