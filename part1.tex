@@ -319,7 +319,7 @@
         \[ \int_K f d\mu := \lim_{m \to \infty} \sum_{|\omega | = m} f(x_\omega) \mu(F_\omega K) \]
         for some \(x_\omega \in F_\omega K \).
 
-        This caption also be written with a measure \(\nu_m: V_m \to \R_+ \) as
+        This can also be written with a measure \(\nu_m: V_m \to \R_+ \) as
         \begin{align*}
             \int_K f d\mu &= \lim_{m \to \infty} \textcolor{red}{\frac{1}{3}} \textcolor{red}{\sum_{i=0}^2} \sum_{| \omega | = m} \textcolor{red}{f(F_\omega q_i)} \textcolor{blue}{\mu(F_\omega K)}
             = \lim_{m\to \infty} \int_{V_m} f(x) d\nu_m(x) \\
@@ -347,7 +347,7 @@
     \textbf{Note that:}
     \begin{scriptsize}
         \begin{align*}
-            \int_U \| u'(x) \|^2 dx &= \lim_{m\to\infty} \sum_{k=1}^{2^m} 2^{-m} u'(\textcolor{blue}{x_k})
+            \int_U \| u'(x) \|^2 dx &= \lim_{m\to\infty} \sum_{k=1}^{2^m} 2^{-m} [u'(\textcolor{blue}{x_k})]^2
             \overset{\text{MVT}}= \lim_{m \to \infty} \sum_{k=1}^{2^m} 2^{-m} \left( \frac{u(k2^{-m}) - u((k-1)2^{-m})}{2^{-m}} \right)^2 \\
             &= \lim_{m \to \infty} 2^m \textcolor{purple}{\sum_{x \sim_m y} [ u(x) - u(y) ]^2}
             =: \lim_{m \to \infty} r^{-m} \textcolor{purple}{E_m(u)} =: \lim_{m\to\infty} \mathcal{E}_m (u)
